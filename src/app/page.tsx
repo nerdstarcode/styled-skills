@@ -8,6 +8,7 @@ import { HardSkillsCard } from "@/components/templates/HardSkillsCard";
 import { useState } from "react";
 import { SkillsList } from "@/components/templates/SkillsList";
 import { SoftSkillsCard } from "@/components/templates/SoftSkillsCard";
+import { ExportImage } from "@/components/atoms/ExportImage";
 export default function Home() {
   const [hardSkills, setHardSkills] = useState<{ name: string, value: number, wanted?: number }[]>(localStorage.getItem('hardSkills') ? JSON?.parse(localStorage.getItem('hardSkills') as any) : [])
   const [softSkills, setSoftSkills] = useState<{ name: string, value: number, wanted?: number }[]>(localStorage.getItem('softSkills') ? JSON?.parse(localStorage.getItem('softSkills') as any) : [])
@@ -23,6 +24,9 @@ export default function Home() {
         <div className="px-4">
           <h1 className="text-4xl ">Sthiven Raphael Melo Correia</h1>
           <h2 className="text-2xl opacity-50">Intern Software Developer</h2>
+        </div>
+        <div className="flex ml-auto">
+          <ExportImage />
         </div>
       </motion.div>
       <div className="grid grid-cols-2 w-full">

@@ -29,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        id="to-image"
         className={`${geistSans.variable} ${geistMono.variable} text-brand-gray-uber-light antialiased bg-brand-primary-dark print:bg-brand-primary-dark`}
       >
         <AppRouterCacheProvider >
