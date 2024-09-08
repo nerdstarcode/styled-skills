@@ -26,16 +26,16 @@ export default function Home() {
         transition={{ duration: 1 }}
         className="flex w-full items-center"
       >
-        <Image src={pefil} alt="perfil-image" className="w-40 h-40 rounded-full" />
+        <Image src={pefil} alt="perfil-image" className="w-20 md:w-40 md:h-40 rounded-full" />
         <div className="px-4">
-          <h1 className="text-4xl ">Sthiven Raphael Melo Correia</h1>
-          <h2 className="text-2xl opacity-50">Intern Software Developer</h2>
+          <h1 className="text-xs md:text-4xl ">Sthiven Raphael Melo Correia</h1>
+          <h2 className="text-sm md:text-2xl opacity-50">Intern Software Developer</h2>
         </div>
         <div className="flex ml-auto">
           <ExportImage />
         </div>
       </motion.div>
-      <div className="grid grid-cols-2 w-full">
+      <div className="grid md:grid-cols-2 grid-cols-1 w-full">
         <HardSkillsCard skills={hardSkills} setSkills={setHardSkills} />
         <SoftSkillsCard skills={softSkills} setSkills={setSoftSkills} />
       </div>

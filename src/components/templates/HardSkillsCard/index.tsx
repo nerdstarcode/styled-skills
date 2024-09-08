@@ -69,17 +69,17 @@ export function HardSkillsCard({ skills, setSkills }: { skills: { name: string, 
           }}
           ButtonCancel="Cancel"
         >
-          <form className="grid grid-cols-2 gap-2">
+          <form className="grid md:grid-cols-2 grid-cols-1 gap-2 md max-md ">
             <TextField
               onChange={(event) => {
                 setNewSkill((prev) => ({ ...prev, name: event.target.value }))
               }}
-              className="w-full col-span-2"
+              className="w-full md:col-span-2"
               variant="outlined"
               placeholder="Skill name"
             />
 
-            <div className="col-span-2">
+            <div className="md:col-span-2">
               <Typography component="legend">Consolidated LvL</Typography>
               <ConsolidatedRating
                 name="customized-color"
@@ -92,7 +92,7 @@ export function HardSkillsCard({ skills, setSkills }: { skills: { name: string, 
                 max={11}
               />
             </div>
-            <div className="col-span-2">
+            <div className="md:col-span-2">
 
               <Typography component="legend">Wanted LvL</Typography>
               <WantedRating

@@ -38,7 +38,7 @@ export function SkillsList({ hardSkills, setHardSkills, softSkills, setSoftSkill
     }, [hardSkills, softSkills])
   }
   return (
-    <div className="grid grid-cols-2 w-full">
+    <div className="grid md:grid-cols-2 grid-cols-1 w-full">
 
       <motion.div className="flex flex-col gap-4 w-full"
         initial={{ opacity: 0, y: 0, x: -500 }}
