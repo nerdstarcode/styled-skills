@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'print': { 'raw': 'print' },
+      },
       fontFamily: {
         'inter': 'Inter, sans-serif',
         'noto-sans': 'Noto Sans, sans-serif',

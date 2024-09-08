@@ -1,37 +1,40 @@
 "use client";
 import { SkillsChart } from "@/components/molecules/SkillsChart";
 import { motion } from "framer-motion";
-
+import Image from "next/image";
+import pefil from "@/public/image.jpeg"
+import BaseDialog from "@/components/molecules/BaseDialog";
+import { HardSkillsCard } from "@/components/templates/HardSkillsCard";
+import { useState } from "react";
+import { SkillsList } from "@/components/templates/SkillsList";
+import { SoftSkillsCard } from "@/components/templates/SoftSkillsCard";
 export default function Home() {
+  const [hardSkills, setHardSkills] = useState<{ name: string, value: number, wanted?: number }[]>(localStorage.getItem('hardSkills') ? JSON?.parse(localStorage.getItem('hardSkills') as any) : [])
+  const [softSkills, setSoftSkills] = useState<{ name: string, value: number, wanted?: number }[]>(localStorage.getItem('softSkills') ? JSON?.parse(localStorage.getItem('softSkills') as any) : [])
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <motion.h1
+    <div className="max-w-[1200px] mx-auto flex flex-col py-16 gap-8 items-center justify-items-center min-h-screen px-8">
+      <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
+        className="flex w-full items-center"
       >
-        Animate with Framer Motion
-      </motion.h1>
+        <Image src={pefil} alt="perfil-image" className="w-40 h-40 rounded-full" />
+        <div className="px-4">
+          <h1 className="text-4xl ">Sthiven Raphael Melo Correia</h1>
+          <h2 className="text-2xl opacity-50">Intern Software Developer</h2>
+        </div>
+      </motion.div>
       <div className="grid grid-cols-2 w-full">
-        <SkillsChart title="HardSkills" dataSkills={[
-          { name: 'skill1', value: 5, wanted: 8 },
-          { name: 'skill2', value: 6, wanted: 7 },
-          { name: 'skill3', value: 7, wanted: 10 },
-          { name: 'skill4', value: 2, wanted: 5 },
-          { name: 'skill5', value: 6, wanted: 8 },
-          { name: 'skill6', value: 6, wanted: 8 },
-          { name: 'skill7', value: 10, wanted: 10 },
-        ]} />
-        <SkillsChart title="SoftSkills" dataSkills={[
-          { name: 'skill1', value: 5, wanted: 8 },
-          { name: 'skill2', value: 6, wanted: 7 },
-          { name: 'skill3', value: 7, wanted: 10 },
-          { name: 'skill4', value: 2, wanted: 5 },
-          { name: 'skill5', value: 6, wanted: 8 },
-          { name: 'skill6', value: 6, wanted: 8 },
-          { name: 'skill7', value: 10, wanted: 10 },
-        ]} />
+        <HardSkillsCard skills={hardSkills} setSkills={setHardSkills} />
+        <SoftSkillsCard skills={softSkills} setSkills={setSoftSkills} />
       </div>
+      <SkillsList
+        hardSkills={hardSkills}
+        setHardSkills={setHardSkills}
+        softSkills={softSkills}
+        setSoftSkills={setSoftSkills}
+      />
     </div>
   );
 }
