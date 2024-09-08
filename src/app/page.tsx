@@ -10,8 +10,8 @@ import { SkillsList } from "@/components/templates/SkillsList";
 import { SoftSkillsCard } from "@/components/templates/SoftSkillsCard";
 import { ExportImage } from "@/components/atoms/ExportImage";
 export default function Home() {
-  const [hardSkills, setHardSkills] = useState<{ name: string, value: number, wanted?: number }[]>(localStorage.getItem('hardSkills') ? JSON?.parse(localStorage.getItem('hardSkills') as any) : [])
-  const [softSkills, setSoftSkills] = useState<{ name: string, value: number, wanted?: number }[]>(localStorage.getItem('softSkills') ? JSON?.parse(localStorage.getItem('softSkills') as any) : [])
+  const [hardSkills, setHardSkills] = useState<{ name: string, value: number, wanted?: number }[]>(localStorage?.getItem('hardSkills') ? JSON?.parse(localStorage?.getItem('hardSkills') as any) : [])
+  const [softSkills, setSoftSkills] = useState<{ name: string, value: number, wanted?: number }[]>(localStorage?.getItem('softSkills') ? JSON?.parse(localStorage?.getItem('softSkills') as any) : [])
   return (
     <div className="max-w-[1200px] mx-auto flex flex-col py-16 gap-8 items-center justify-items-center min-h-screen px-8">
       <motion.div

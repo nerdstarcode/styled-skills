@@ -31,9 +31,9 @@ export interface ISkillsList {
 export function SkillsList({ hardSkills, setHardSkills, softSkills, setSoftSkills }: ISkillsList) {
   useEffect(() => {
     if (hardSkills)
-      localStorage.setItem('hardSkills', JSON.stringify(hardSkills ?? []))
+      localStorage?.setItem('hardSkills', JSON.stringify(hardSkills ?? []))
     if (softSkills)
-      localStorage.setItem('softSkills', JSON.stringify(softSkills ?? []))
+      localStorage?.setItem('softSkills', JSON.stringify(softSkills ?? []))
   }, [hardSkills, softSkills])
   return (
     <div className="grid grid-cols-2 w-full">

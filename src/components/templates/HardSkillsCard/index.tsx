@@ -25,7 +25,7 @@ export const WantedRating = styled(Rating)({
 export function HardSkillsCard({ skills, setSkills }: { skills: { name: string, value: number, wanted?: number }[], setSkills: Function }) {
   const [newSkill, setNewSkill] = useState<{ name: string, value: number, wanted?: number }>({ name: '', value: 0 })
   useEffect(() => {
-    localStorage.setItem('hardSkills', JSON.stringify(skills || []))
+    localStorage?.setItem('hardSkills', JSON.stringify(skills || []))
   }, [skills])
   return (
     <motion.article
