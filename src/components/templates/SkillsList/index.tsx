@@ -31,10 +31,13 @@ export interface ISkillsList {
 export function SkillsList({ hardSkills, setHardSkills, softSkills, setSoftSkills }: ISkillsList) {
   if (typeof window !== "undefined") {
     useEffect(() => {
-      if (hardSkills)
-        localStorage?.setItem('hardSkills', JSON.stringify(hardSkills ?? []))
-      if (softSkills)
-        localStorage?.setItem('softSkills', JSON.stringify(softSkills ?? []))
+      const hard = localStorage?.getItem('hardSkills') ? JSON.stringify(localStorage?.getItem('hardSkills')) : false
+      const soft = localStorage?.getItem('softSkills') ? JSON.stringify(localStorage?.getItem('softSkills')) : false
+      console.log(hardSkills, !hard)
+      if (Number(hardSkills?.length) > 0)
+        localStorage?.setItem('hardSkills', JSON.stringify(hardSkills || hard || []))
+      if (Number(softSkills?.length) > 0)
+        localStorage?.setItem('softSkills', JSON.stringify(softSkills || soft || []))
     }, [hardSkills, softSkills])
   }
   return (

@@ -16,6 +16,7 @@ export function SkillsChart({
     { name: 'skill7', value: 10, wanted: 10 },
   ],
 }) {
+  console.log(dataSkills)
   function buntchArray(array: any[], size: number = 15): {
     name: string;
     value: number;
@@ -162,10 +163,11 @@ export function SkillsChart({
       valueswantedLvl
     }
   }
-  useEffect(() => {
-    setMultiRadar(montMultiRadar(buntchArray(dataSkills)) as any)
-    setData(tratativeSkills(dataSkills))
-  }, [dataSkills])
+  if (dataSkills?.length > 0) {
+    useEffect(() => {
+      setMultiRadar(montMultiRadar(buntchArray(dataSkills)) as any)
+    }, [dataSkills])
+  }
   const option = {
     animationDuration: 1500,
     animationDurationUpdate: 1500,
@@ -204,7 +206,7 @@ export function SkillsChart({
     series: multiRadar?.series
   };
 
-  if (Number(dataSkills?.length || 0) === 0) return <div className='h-[300px] w-full flex items-center justify-center font-bold text-xl opacity-50'>
+  if (!(Number(dataSkills?.length || 0) > 0)) return <div className='h-[300px] w-full flex items-center justify-center font-bold text-xl opacity-50'>
     <DataArray /> no data
   </div>
   return <ReactECharts option={option} style={{ height: '300px', width: 'auto' }} />;

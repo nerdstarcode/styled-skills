@@ -16,7 +16,7 @@ export default function Home() {
     useEffect(() => {
       setHardSkills(localStorage?.getItem('hardSkills') ? JSON?.parse(localStorage?.getItem('hardSkills') as any) : [])
       setSoftSkills(localStorage?.getItem('softSkills') ? JSON?.parse(localStorage?.getItem('softSkills') as any) : [])
-    })
+    },[])
   }
   return (
     <div className="max-w-[1200px] mx-auto flex flex-col py-16 gap-8 items-center justify-items-center min-h-screen px-8">

@@ -26,7 +26,7 @@ export function SoftSkillsCard({ skills, setSkills }: { skills: { name: string, 
   const [newSkill, setNewSkill] = useState<{ name: string, value: number, wanted?: number }>({ name: '', value: 0 })
   if (typeof window !== "undefined") {
     useEffect(() => {
-      localStorage?.setItem('softSkills', JSON.stringify(skills || []))
+      if (!localStorage?.getItem('hardSkills')) localStorage?.setItem('softSkills', JSON.stringify(skills || []))
     }, [skills])
   }
   return (
