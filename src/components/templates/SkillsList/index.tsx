@@ -33,7 +33,6 @@ export function SkillsList({ hardSkills, setHardSkills, softSkills, setSoftSkill
     useEffect(() => {
       const hard = localStorage?.getItem('hardSkills') ? JSON.stringify(localStorage?.getItem('hardSkills')) : false
       const soft = localStorage?.getItem('softSkills') ? JSON.stringify(localStorage?.getItem('softSkills')) : false
-      console.log(hardSkills, !hard)
       if (Number(hardSkills?.length) > 0)
         localStorage?.setItem('hardSkills', JSON.stringify(hardSkills || hard || []))
       if (Number(softSkills?.length) > 0)

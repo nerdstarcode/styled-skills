@@ -16,7 +16,6 @@ export function SkillsChart({
     { name: 'skill7', value: 10, wanted: 10 },
   ],
 }) {
-  console.log(dataSkills)
   function buntchArray(array: any[], size: number = 15): {
     name: string;
     value: number;
