@@ -24,9 +24,11 @@ export const WantedRating = styled(Rating)({
 });
 export function SoftSkillsCard({ skills, setSkills }: { skills: { name: string, value: number, wanted?: number }[], setSkills: Function }) {
   const [newSkill, setNewSkill] = useState<{ name: string, value: number, wanted?: number }>({ name: '', value: 0 })
-  useEffect(() => {
-    localStorage?.setItem('softSkills', JSON.stringify(skills || []))
-  }, [skills])
+  if (typeof window !== "undefined") {
+    useEffect(() => {
+      localStorage?.setItem('softSkills', JSON.stringify(skills || []))
+    }, [skills])
+  }
   return (
     <motion.article
       initial={{ opacity: 0, y: 0, x: -500 }}
