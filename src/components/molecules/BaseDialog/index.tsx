@@ -54,8 +54,6 @@ export default function BaseDialog({
             padding: '1rem',
             backdropFilter: 'blur(5px)',
             color: 'white',
-            minWidth: '500px',
-            minHeight: '500px',
           },
         }}
       >
